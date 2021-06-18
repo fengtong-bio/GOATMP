@@ -75,7 +75,7 @@ High-quality bins were identified to obtain MAGs. The taxonomic annotation was t
 
 #### Part4: 04_MAGs_function.sh
 
-MAGs were subjected to tools including PRODIGAL to identify protein-coding and non-coding genes. Protein-coding genes were clustered using CD-HIT to gereate a non-redundant catelog, which were used as input to BLAST against serveral public databases for functional annotation.
+MAGs were subjected to tools including PROKKA to identify protein-coding and non-coding genes. Protein-coding genes were clustered using CD-HIT to gereate a non-redundant catelog, which were used as input to BLAST against serveral public databases for functional annotation.
 
 ### Statistical analysis and visualization
 
