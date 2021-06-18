@@ -1,0 +1,7 @@
+ID	Proportions	Number	All
+Phylum	1	71	71
+Class	1	71	71
+Order	1	71	71
+Family	1	71	71
+Genus	0.788732394366197	56	71
+Species	0.0845070422535211	6	71
