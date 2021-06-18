@@ -61,19 +61,19 @@ The Example workflow is divided into two folders: 'Pipeline' and 'Scripts'. 'Pip
 
 ### Generation of metagenomic-assembled genomes (MAGs) and their taxonomic and functional annotation
 
-#### Part1: 01_preprocessing.sh
+#### Part1: 01_Preprocessing.sh
 
 Pre-processing of the raw sequencing data in FASTQ format, including quality control (removal of low-quality and adaptor sequences) and removal of host genome and contaminations from food.
 
-#### Part2: 02_assembly-binning.sh
+#### Part2: 02_Assembly-Binning.sh
 
 Metagenomic assembly and binning were divided into individual assembly of each sample and co-assembly of all samples; in the co-assembly step, samples may be divided into different groups according to the origins (e.g., body sites) of the samples. The assembled contigs were then merged together for binning.
 
-#### Part3: 03_MAGs_taxonomy.sh
+#### Part3: 03_MAGs_Taxonomy.sh
 
 High-quality bins were identified to obtain MAGs. The taxonomic annotation was then performed for all MAGs to determine their taxonomic identities and phylogenetic relationships.
 
-#### Part4: 04_MAGs_function.sh
+#### Part4: 04_MAGs_Function.sh
 
 MAGs were subjected to tools including PROKKA to identify protein-coding and non-coding genes. Protein-coding genes were clustered using CD-HIT to gereate a non-redundant catelog, which were used as input to BLAST against serveral public databases for functional annotation.
 
