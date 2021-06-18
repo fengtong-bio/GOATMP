@@ -1,0 +1,11 @@
+library(ggplot2)
+library(ggpubr)
+sample <- read.table("INFILE.list",sep = "\t",header = T,row.names = 1)
+png(file = "OUTFILE.png")
+my_comparisons <- list(c('Grazing','Indoor_feeding'))
+ggboxplot(sample, x="Group", y="Number", color = "Group", palette = c('#74a9cf','#045a8d'), add = "jitter") + stat_compare_means(comparisons = my_comparisons, label = "p.signif") + theme(panel.background = element_rect(fill = NA, colour = "black", linetype = "solid"), legend.key = element_rect(fill = NA)) + theme(legend.position = "right") + scale_x_discrete(limits = c('Grazing','Indoor_feeding'))
+dev.off()
+
+pdf(file = "OUTFILE.pdf")
+ggboxplot(sample, x="Group", y="Number", color = "Group", palette = c('#74a9cf','#045a8d'), add = "jitter") + stat_compare_means(comparisons = my_comparisons, label = "p.signif") + theme(panel.background = element_rect(fill = NA, colour = "black", linetype = "solid"), legend.key = element_rect(fill = NA)) + theme(legend.position = "right") + scale_x_discrete(limits = c('Grazing','Indoor_feeding'))
+dev.off()

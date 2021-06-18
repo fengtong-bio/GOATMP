@@ -1,0 +1,5 @@
+library(ggplot2)
+sample <- read.table("standard_curve.txt",sep = "\t",header = T)
+pdf(file = "standard_curve.pdf",width=10, height=5)
+ggplot() + geom_line(data=sample,aes(x=CT_value, y=Copies_number)) + theme(panel.background = element_rect(fill = NA), legend.key = element_rect(fill = NA)) +labs(x = "CT value", y = "Copies number (log10)", fill = NULL) + theme(panel.background = element_rect(colour = "black", linetype = "solid"))
+dev.off()

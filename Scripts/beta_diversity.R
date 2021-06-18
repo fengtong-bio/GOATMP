@@ -1,0 +1,26 @@
+library('vegan')
+library('ggplot2')
+data <- read.delim('beta_diversity_feeding_style.txt', row.names = 1, sep = '', stringsAsFactors = FALSE, check.names = FALSE)
+dataT <- t(data)
+groups <- read.delim('beta_diversity_feeding_style_group.txt', row.names = 1, sep = '', stringsAsFactors = FALSE, check.names = FALSE, colClasses=c("names"="character"))
+ar = anosim(dataT,groups$group,permutations = 999, distance = "bray")
+summary(ar)
+dc = data.frame(dis = ar$dis.rank, class = ar$class.vec)
+pdf(file = "beta_diversity_feeding_style.anosim.pdf")
+boxplot(dis~class, data = dc, col = c("#EA4335","#34A853","#FBBC05"), main = "Anosim (R = 0.8126, P = 0.001)", varwidth = F, notch=F, xlab = "Group", ylab = "Anosim")		#need fill in P and R with log; need change color !!! 
+dev.off()
+sample <- read.table('beta_diversity_feeding_style.txt',sep = '',header = T,row.names = 1)
+sample <- data.frame(t(sample))
+groups <- read.table('beta_diversity_feeding_style_group.txt',sep = '',header = T,row.names = 1)
+groups <- groups[match(rownames(sample),rownames(groups)),]
+nmds1 <- metaMDS(sample, distance = 'bray', k = 2)
+nmds1.stress <- nmds1$stress
+nmds1.point <- data.frame(nmds1$point)
+nmds1.species <- data.frame(nmds1$species)
+sample_site <- nmds1.point[1:2]
+sample_site$names <- rownames(sample_site)
+colnames(sample_site)[1:2] <- c('NMDS1', 'NMDS2')
+sample_site <- cbind(sample_site,groups)
+pdf(file = "beta_diversity_feeding_style.NMDS.pdf")
+ggplot(sample_site,aes(x = NMDS1, y = NMDS2, colour = as.factor(group))) + geom_point(size = 3) + stat_ellipse(aes(fill=group),type="norm",geom="polygon",level=0.95,alpha=0.1,color=NA,show.legend=F) + scale_color_manual(values = c("#34A853","#FBBC05")) + scale_fill_manual(values = c("#34A853","#FBBC05")) + theme(panel.background = element_rect(fill = NA,colour = "black", size = 1, linetype = "solid")) +labs(colour = "Group", fill = "Group") + theme(legend.key = element_rect(fill = NA),legend.background = element_rect(fill = NA))
+dev.off()

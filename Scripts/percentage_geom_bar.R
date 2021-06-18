@@ -1,0 +1,50 @@
+library(ggplot2)
+sample <- read.table("percentage_geom_bar_Phylum_geography_sum.txt",sep = "\t",header = T)
+sample <- within(sample, Group <- factor(Group, levels = c("Yunnan","Sichuan","Guangxi","Hainan")))
+pdf(file = "percentage_geom_bar_Phylum_geography_sum.pdf")
+ggplot(data = sample, aes(x = Group, y = Number, fill = factor(Phylum))) + geom_bar(stat = "identity", width = 0.9, position = "fill" ) + theme(panel.background = element_rect(fill = NA, colour = "black", linetype = "solid")) +labs(y = "Proportions(%)", fill = "Phylum") + theme(axis.text.x = element_text(angle = 45, hjust = 1)) + scale_fill_manual(values = c('#004d73','#4DBBD5','#8a7967','#ee4f4f','#DC0000','#004977','#70b29c','#ecb731','#553a99','#0c3866','#F39B7F','#E64B35','#799eb2','#91D1C2','#52565e','#706357','#3C5488','#8491B4','#a71930','#7E6148','#88aca1','#00A087','#d74e26'))
+dev.off()
+
+sample <- read.table("percentage_geom_bar_Phylum_feeding_style_sum.txt",sep = "\t",header = T)
+sample <- within(sample, Group <- factor(Group, levels = c("Grazing","Indoor_feeding")))
+pdf(file = "percentage_geom_bar_Phylum_feeding_style_sum.pdf")
+ggplot(data = sample, aes(x = Group, y = Number, fill = factor(Phylum))) + geom_bar(stat = "identity", width = 0.9, position = "fill" ) + theme(panel.background = element_rect(fill = NA, colour = "black", linetype = "solid")) +labs(y = "Proportions(%)", fill = "Phylum") + theme(axis.text.x = element_text(angle = 45, hjust = 1)) + scale_fill_manual(values = c('#004d73','#4DBBD5','#8a7967','#ee4f4f','#DC0000','#004977','#70b29c','#ecb731','#553a99','#0c3866','#F39B7F','#E64B35','#799eb2','#91D1C2','#52565e','#706357','#3C5488','#8491B4','#a71930','#7E6148','#88aca1','#00A087','#d74e26'))
+dev.off()
+
+sample <- read.table("percentage_geom_bar_Phylum_age_sum.txt",sep = "\t",header = T)
+sample <- within(sample, Group <- factor(Group, levels = c("1_months_old","6_months_old","12_months_old")))
+pdf(file = "percentage_geom_bar_Phylum_age_sum.pdf")
+ggplot(data = sample, aes(x = Group, y = Number, fill = factor(Phylum))) + geom_bar(stat = "identity", width = 0.9, position = "fill" ) + theme(panel.background = element_rect(fill = NA, colour = "black", linetype = "solid")) +labs(y = "Proportions(%)", fill = "Phylum") + theme(axis.text.x = element_text(angle = 45, hjust = 1)) + scale_fill_manual(values = c('#004d73','#4DBBD5','#8a7967','#ee4f4f','#DC0000','#004977','#70b29c','#ecb731','#553a99','#0c3866','#F39B7F','#E64B35','#799eb2','#91D1C2','#52565e','#706357','#3C5488','#8491B4','#a71930','#7E6148','#88aca1','#00A087','#d74e26'))
+dev.off()
+
+sample <- read.table("percentage_geom_bar_Phylum_gastrointestinal_tract_sum.txt",sep = "\t",header = T)
+sample <- within(sample, Group <- factor(Group, levels = c("Stomach","Small_intestine","Large_intestine")))
+pdf(file = "percentage_geom_bar_Phylum_gastrointestinal_tract_sum.pdf")
+ggplot(data = sample, aes(x = Group, y = Number, fill = factor(Phylum))) + geom_bar(stat = "identity", width = 0.9, position = "fill" ) + theme(panel.background = element_rect(fill = NA, colour = "black", linetype = "solid")) +labs(y = "Proportions(%)", fill = "Phylum") + theme(axis.text.x = element_text(angle = 45, hjust = 1)) + scale_fill_manual(values = c('#004d73','#4DBBD5','#8a7967','#ee4f4f','#DC0000','#004977','#70b29c','#ecb731','#553a99','#0c3866','#F39B7F','#E64B35','#799eb2','#91D1C2','#52565e','#706357','#3C5488','#8491B4','#a71930','#7E6148','#88aca1','#00A087','#d74e26'))
+dev.off()
+
+
+
+sample <- read.table("percentage_geom_bar_Phylum_geography_sample.txt",sep = "\t",header = T)
+sample <- within(sample, Group <- factor(Group, levels = c("Yunnan","Sichuan","Guangxi","Hainan")))
+pdf(file = "percentage_geom_bar_Phylum_geography_sample.pdf")
+ggplot(data = sample, aes(x = Sample, y = Number, fill = factor(Phylum))) + geom_bar(stat = "identity", width = 1, position = "fill" ) + facet_grid(. ~ Group,scales = "free_x") + theme(axis.text.x =element_blank()) + theme(panel.background = element_rect(fill = NA, colour = "black", linetype = "solid")) + labs(fill = "Phylum") + labs(y = "Proportion(%)") + labs(x = "Group") + theme(axis.ticks = element_line(linetype = "blank")) + theme(panel.background = element_rect(linetype = "blank")) + scale_fill_manual(values = c('#004d73','#4DBBD5','#8a7967','#ee4f4f','#DC0000','#004977','#70b29c','#ecb731','#553a99','#0c3866','#F39B7F','#E64B35','#799eb2','#91D1C2','#52565e','#706357','#3C5488','#8491B4','#a71930','#7E6148','#88aca1','#00A087','#d74e26'))
+dev.off()
+
+sample <- read.table("percentage_geom_bar_Phylum_feeding_style_sample.txt",sep = "\t",header = T)
+sample <- within(sample, Group <- factor(Group, levels = c("Grazing","Indoor_feeding")))
+pdf(file = "percentage_geom_bar_Phylum_feeding_style_sample.pdf")
+ggplot(data = sample, aes(x = Sample, y = Number, fill = factor(Phylum))) + geom_bar(stat = "identity", width = 1, position = "fill" ) + facet_grid(. ~ Group,scales = "free_x") + theme(axis.text.x =element_blank()) + theme(panel.background = element_rect(fill = NA, colour = "black", linetype = "solid")) + labs(fill = "Phylum") + labs(y = "Proportion(%)") + labs(x = "Group") + theme(axis.ticks = element_line(linetype = "blank")) + theme(panel.background = element_rect(linetype = "blank")) + scale_fill_manual(values = c('#004d73','#4DBBD5','#8a7967','#ee4f4f','#DC0000','#004977','#70b29c','#ecb731','#553a99','#0c3866','#F39B7F','#E64B35','#799eb2','#91D1C2','#52565e','#706357','#3C5488','#8491B4','#a71930','#7E6148','#88aca1','#00A087','#d74e26'))
+dev.off()
+
+sample <- read.table("percentage_geom_bar_Phylum_age_sample.txt",sep = "\t",header = T)
+sample <- within(sample, Group <- factor(Group, levels = c("1_months_old","6_months_old","12_months_old")))
+pdf(file = "percentage_geom_bar_Phylum_age_sample.pdf")
+ggplot(data = sample, aes(x = Sample, y = Number, fill = factor(Phylum))) + geom_bar(stat = "identity", width = 1, position = "fill" ) + facet_grid(. ~ Group,scales = "free_x") + theme(axis.text.x =element_blank()) + theme(panel.background = element_rect(fill = NA, colour = "black", linetype = "solid")) + labs(fill = "Phylum") + labs(y = "Proportion(%)") + labs(x = "Group") + theme(axis.ticks = element_line(linetype = "blank")) + theme(panel.background = element_rect(linetype = "blank")) + scale_fill_manual(values = c('#004d73','#4DBBD5','#8a7967','#ee4f4f','#DC0000','#004977','#70b29c','#ecb731','#553a99','#0c3866','#F39B7F','#E64B35','#799eb2','#91D1C2','#52565e','#706357','#3C5488','#8491B4','#a71930','#7E6148','#88aca1','#00A087','#d74e26'))
+dev.off()
+
+sample <- read.table("percentage_geom_bar_Phylum_gastrointestinal_tract_sample.txt",sep = "\t",header = T)
+sample <- within(sample, Group <- factor(Group, levels = c("Stomach","Small_intestine","Large_intestine")))
+pdf(file = "percentage_geom_bar_Phylum_gastrointestinal_tract_sample.pdf")
+ggplot(data = sample, aes(x = Sample, y = Number, fill = factor(Phylum))) + geom_bar(stat = "identity", width = 1, position = "fill" ) + facet_grid(. ~ Group,scales = "free_x") + theme(axis.text.x =element_blank()) + theme(panel.background = element_rect(fill = NA, colour = "black", linetype = "solid")) + labs(fill = "Phylum") + labs(y = "Proportion(%)") + labs(x = "Group") + theme(axis.ticks = element_line(linetype = "blank")) + theme(panel.background = element_rect(linetype = "blank")) + scale_fill_manual(values = c('#004d73','#4DBBD5','#8a7967','#ee4f4f','#DC0000','#004977','#70b29c','#ecb731','#553a99','#0c3866','#F39B7F','#E64B35','#799eb2','#91D1C2','#52565e','#706357','#3C5488','#8491B4','#a71930','#7E6148','#88aca1','#00A087','#d74e26'))
+dev.off()
