@@ -77,6 +77,14 @@ High-quality bins were identified to obtain MAGs. The taxonomic annotation was t
 
 MAGs were subjected to tools including PROKKA to identify protein-coding and non-coding genes. Protein-coding genes were clustered using CD-HIT to gereate a non-redundant catelog, which were used as input to BLAST against serveral public databases for functional annotation.
 
+#### Part5: 05_MAGs_Relative_abundance.sh
+
+To calculate the coverage of each MAG in each sample, clean reads of each sample were mapped to the 4075 MAGs using BWA-MEM with default parameters. After converting the resulted SAM files to BAM format using Samtools, an in-house Perl script was used to calculate the coverage of MAGs, which defined as the total bases mapped to a MAG in a sample divided by the length of the MAG. Then, the relative abundance was calculated according to the coverage.
+
+#### Part6: 06_Gene_Coverage.sh
+
+Salmon was used to estimate the coverage of non-redundant genes.
+
 ### Statistical analysis and visualization
 
 All analyzed data were loaded to Perl, R and Python for further analysis and visualisation using serveral in-house scripts. The in-house scripts are available in the folder 'Scripts'.
